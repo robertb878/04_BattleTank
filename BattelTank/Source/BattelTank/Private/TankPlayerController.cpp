@@ -18,8 +18,37 @@ void ATankPlayerController::BeginPlay()
 
 }
 
+// Called every frame
+void ATankPlayerController::Tick(float DeltaTime)
+{
+	Super::Tick(DeltaTime);
+
+}
+
+void ATankPlayerController::AimTowardsCrosshair()
+{
+	if (!GetTank()) { return; }
+
+	FVector HitLocation; // Out Parameter
+
+	if (GetSightRayHitLocation(HitLocation)) {
+
+	}
+}
+
 ATank* ATankPlayerController::GetTank() const
 {
 	return Cast<ATank>(GetPawn());
+}
+
+// Get the world location of linetrace through crosshair
+bool ATankPlayerController::GetSightRayHitLocation(FVector & HitLocation) const
+{
+	FHitResult hitResult;
+	HitLocation = FVector(1.0f);
+
+	//FVector StartLocation = 
+
+	return true;
 }
 
